@@ -12,7 +12,8 @@ This analysis explores maternal health indicators; Age, Blood Pressure, Blood Su
 Rows: 1014
 
 Columns: 7
-## Parameters: 
+
+### Parameters: 
 
 Age: Maternal age (years)
 
@@ -39,7 +40,7 @@ RiskLevel: Categorical risk label (low risk, mid risk, high risk)
 | BodyTemp (°F)      | 98.66  | 1.37    | 98.0 | 103.0|
 | HeartRate (bpm)    | 74.30  | 8.08    | 7.0  | 90.0 |
 
-## RiskLevel Distribution
+### RiskLevel Distribution
 
 | RiskLevel | Proportion | Count |
 |-----------|------------|-------|
@@ -47,7 +48,7 @@ RiskLevel: Categorical risk label (low risk, mid risk, high risk)
 | Mid       | 35%        | 355   |
 | Low       | 25%        | 253   |
 
-## Key observations
+## Key Observations
 Central tendencies place most vitals within expected ranges, with clinically relevant upper tails for SystolicBP and BS.
 
 HeartRate distribution clusters around 70–80 bpm, with evidence of subgroups.
@@ -57,49 +58,57 @@ Most mothers fall between 20–35 years, with fewer cases at the extremes (10–
 
 High‑risk cases appear across all ages, showing that age alone is not a strong predictor.
 
+![Distribution of Maternal Age](images/Distribution_of_Maternal_Age.png)
+
 ## Blood Pressure Patterns
 Blood pressure is one of the strongest differentiators of risk.
 
-• 	High risk: SystolicBP ≥ 140 and DiastolicBP ≥ 90
+- High risk: SystolicBP ≥ 140 and DiastolicBP ≥ 90
 
-• 	Low risk: Typically 100–120 / 60–80
+- Low risk: Typically 100–120 / 60–80
 
-• 	Mid risk: Transitional zone with moderate elevation
+- Mid risk: Transitional zone with moderate elevation
 
 This aligns with clinical expectations around hypertension in pregnancy.
+
+![Box plot of Systolic BP by Risk Level](images/Box_plot_of_Systolic_BP_by_Risk_Level.png)
 
 ## Blood Sugar (BS)
 Blood sugar shows a clear separation across risk levels:
 
-• 	High risk: BS often > 10
+- High risk: BS often > 10
 
-• 	Mid risk: BS between 7–9
+- Mid risk: BS between 7–9
 
-• 	Low risk: BS between 6–8
+- Low risk: BS between 6–8
 
 This makes BS a strong independent predictor of risk.
+
+![Scatter plot of blood sugar by risk level](images/Scatter_plot_of_blood_sugar_by_risk_level.png)
 
 ## Heart Rate
 Heart rate generally ranges between 60–90 bpm.
 
-• 	High‑risk cases show more variability and more elevated values (≥ 85 bpm).
+- High‑risk cases show more variability and more elevated values (≥ 85 bpm).
 
-• 	Low‑risk cases cluster around 70–80 bpm.
+- Low‑risk cases cluster around 70–80 bpm.
+
+![Distribution of Heart Rate](images/Distribution_of_Heart_rate.png)
 
 ## Bivariate Analysis
-## SystolicBP by RiskLevel: 
+### SystolicBP by RiskLevel: 
 
 High risk group exhibits elevated median and greater spread; mid risk overlaps low risk but has wider variance.
 
-## Blood Sugar vs Age by RiskLevel: 
+### Blood Sugar vs Age by RiskLevel: 
 
 Positive trend between age and BS. High risk individuals show higher BS across the age range.
 
-## HeartRate distribution:
+### HeartRate distribution:
 
 Multimodal patterns suggest distinct subpopulations (e.g., resting versus stressed/activity states).
 
-## Actionable  insight
+### Actionable  Insight
 
 Age stratification meaningfully separates glucose and blood pressure risk profiles and should be included in risk stratification logic.
 
@@ -107,27 +116,29 @@ Age stratification meaningfully separates glucose and blood pressure risk profil
 
 Provided variable correlations and interpretations.
 
-## Age & DiastolicBP = 0.40 
+### Age & DiastolicBP = 0.40 
 
 Moderate positive correlation; diastolic pressure tends to increase with age. Use age as a covariate in BP risk models.
 
-## SystolicBP & DiastolicBP = 0.79
+### SystolicBP & DiastolicBP = 0.79
 
 Strong positive relationship; both move together and reflect overall BP status. Both can be retained for clinical completeness.
 
-## Age & BS = 0.47 
+### Age & BS = 0.47 
 
 Moderate positive correlation; older patients trend toward higher blood sugar. Prioritize glucose screening for older maternal age groups.
 
-## BodyTemp & BS ≈ -0.10 
+### BodyTemp & BS ≈ -0.10 
 
 Very weak negative relationship; temperature is not a useful predictor of blood sugar here.
 
-## HeartRate correlations < 0.15 with other vitals 
+### HeartRate correlations < 0.15 with other vitals 
 
 Heart rate shows weak associations and likely reflects contextual factors. Treat HR as dynamic and evaluate with time-context data where possible.
 
-## Multivariate implication
+![Correlation Matrix of Maternal Health Indicators](images/Correlation_Matrix_of_Maternal_Health_Indicators.png)
+
+### Multivariate Implication
 
 Age, BP, and BS form a correlated triad suitable for composite risk scoring.
 
@@ -137,13 +148,13 @@ BodyTemp and HeartRate are weaker predictors and are better treated as supplemen
 
 Primary outliers are elevated SystolicBP (>140 mmHg) and high BS values in the high risk group.
 
-## Recommendation for flagged records: 
+### Recommendation for flagged records: 
 
-Measurement validation.
+- Measurement validation.
 
-Review medication and comorbidities.
+- Review medication and comorbidities.
 
-Follow-up monitoring or intervention.
+- Follow-up monitoring or intervention.
 
 ## Recommendations
 
